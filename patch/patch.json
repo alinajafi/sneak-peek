@@ -1,0 +1,8 @@
+{
+    "name": "Sneak Peek option",
+    "description": "Adds an option for Sneak Peek to Display settings",
+    "category": "homescreen",
+    "infos": {
+        "maintainer": "AliNa"
+    }
+}
