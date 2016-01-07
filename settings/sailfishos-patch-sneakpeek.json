@@ -1,0 +1,12 @@
+{
+    "translation_catalog": "sailfishos-patch-sneakpeek",
+    "entries": [
+    {
+        "path": "system_settings/look_and_feel/",
+        "type": "custom",
+        "params": {
+            "source": "/usr/share/jolla-settings/pages/display/display.qml"
+        }
+    }
+    ]
+}
