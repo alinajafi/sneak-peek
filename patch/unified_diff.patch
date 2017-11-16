@@ -1,33 +1,15 @@
-diff -Nru jolla/usr/share/jolla-settings/pages/display/display.qml alina/usr/share/jolla-settings/pages/display/display.qml
---- jolla/usr/share/jolla-settings/pages/display/display.qml	2016-01-07 05:21:24.470629997 +0330
-+++ alina/usr/share/jolla-settings/pages/display/display.qml	2016-01-07 05:22:52.890632620 +0330
-@@ -103,7 +103,6 @@
-                 onClicked: displaySettings.ambientLightSensorEnabled = !displaySettings.ambientLightSensorEnabled
-             }
- 
--            /*
-             TextSwitch {
-                 automaticCheck: false
-                 checked: displaySettings.lowPowerModeEnabled
-@@ -114,7 +113,6 @@
-                 //% "Automatically show time and status information when taking the device out of pocket."
-                 description: qsTrId("settings_display-la-sneak_peek_description")
-             }
--            */
- 
-             ComboBox {
-                 id: dimCombo
-diff -Nru jolla/usr/share/lipstick-jolla-home-qt5/lockscreen/LockScreen.qml alina/usr/share/lipstick-jolla-home-qt5/lockscreen/LockScreen.qml
---- jolla/usr/share/lipstick-jolla-home-qt5/lockscreen/LockScreen.qml	2016-01-07 05:20:31.898628438 +0330
-+++ alina/usr/share/lipstick-jolla-home-qt5/lockscreen/LockScreen.qml	2016-01-07 05:23:15.390633288 +0330
-@@ -148,8 +148,8 @@
+diff --git a/LockScreen.qml b/LockScreen.qml
+index 071b323..61e368e 100644
+--- a/LockScreen.qml
++++ b/LockScreen.qml
+@@ -176,8 +176,8 @@ ApplicationWindow {
                  updatesEnabled: lockScreen.locked
                  color: lockScreen.textColor
-                 opacity: !waitingSystemStart.running && vignette.opened
--                         ? (deviceLockContainer.isCurrentItem ? deviceLockItem.opacity : lockItem.clock.opacity)
+                 opacity: systemStarted.value && vignette.opened && Desktop.deviceLockState <= DeviceLock.Locked
+-                         ? (deviceLockContainer.isCurrentItem ? deviceLockItem.opacity : lockItem.clock.transitionOpacity)
 -                         : 0.0
 +                         ? (deviceLockContainer.isCurrentItem ? deviceLockItem.opacity : 1.0)
 +                         : 1.0
+                 z: 1
              }
  
-             BusyIndicator {
