@@ -20,14 +20,13 @@ diff -Nru jolla/usr/share/jolla-settings/pages/display/display.qml alina/usr/sha
 diff -Nru jolla/usr/share/lipstick-jolla-home-qt5/lockscreen/LockScreen.qml alina/usr/share/lipstick-jolla-home-qt5/lockscreen/LockScreen.qml
 --- jolla/usr/share/lipstick-jolla-home-qt5/lockscreen/LockScreen.qml	2016-01-07 05:20:31.898628438 +0330
 +++ alina/usr/share/lipstick-jolla-home-qt5/lockscreen/LockScreen.qml	2016-01-07 05:23:15.390633288 +0330
-@@ -148,8 +148,8 @@
+@@ -176,8 +176,8 @@
                  updatesEnabled: lockScreen.locked
                  color: lockScreen.textColor
-                 opacity: !waitingSystemStart.running && vignette.opened
--                         ? (deviceLockContainer.isCurrentItem ? deviceLockItem.opacity : lockItem.clock.opacity)
+                 opacity: systemStarted.value && vignette.opened && Desktop.deviceLockState <= DeviceLock.Locked
+-                         ? (deviceLockContainer.isCurrentItem ? deviceLockItem.opacity : lockItem.clock.transitionOpacity)
 -                         : 0.0
 +                         ? (deviceLockContainer.isCurrentItem ? deviceLockItem.opacity : 1.0)
 +                         : 1.0
+                 z: 1
              }
- 
-             BusyIndicator {
